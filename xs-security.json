@@ -1,0 +1,5 @@
+{
+  "xsappname": "multitenant_helloworld_node",
+  "tenant-mode": "shared",
+  "description": "Security profile of called application"
+}

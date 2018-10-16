@@ -1,0 +1,9 @@
+{
+	"appId": "multitenant_helloworld_node!t2160",
+	"displayName": "Hello World",
+	"description": "A sample hello world app to explain the concepts of Multitenancy",
+	"category": "Provider ZZZ",
+	"appUrls": {
+		"onSubscription": "https://mt-hw-node-app.cfapps.eu10.hana.ondemand.com/callback/v1.0/tenants/{tenantId}"
+	}
+}

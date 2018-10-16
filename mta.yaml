@@ -1,0 +1,57 @@
+ID: multitenant_helloworld_node
+_schema-version: '2.1'
+description: A node application to show how to use the LPS and SaaS registry to build a multi-tenant application on CF-SCP
+version: 1.0.0
+
+modules:
+ - name: mt-hw-node-app
+   type: nodejs
+   path: mt_hw_node_app
+   parameters:
+      disk-quota: 256M
+      memory: 256M
+   provides:
+     - name: dest_mt_hw_approuter_app
+       properties:
+         node_app_url: '${default-url}'
+   requires:
+    - name: uaa_mt_hw
+   properties:
+      SAP_JWT_TRUST_ACL:
+       - clientid: "*"
+         identityzone: "*"
+
+ - name: mt-hw-ar-app
+   type: nodejs
+   path: mt_hw_ar_app
+   parameters:
+      disk-quota: 256M
+      memory: 256M
+   requires:
+      - name: uaa_mt_hw
+      - name: dest_mt_hw_approuter_app
+        group: destinations
+        properties:
+          name: dest_mt_hw_approuter_app
+          url: '~{node_app_url}'
+          forwardAuthToken: true
+   properties:
+      TENANT_HOST_PATTERN: "^(.*)-mt-hw-ar-app.cfapps.eu10.hana.ondemand.com"
+
+
+resources:
+ - name: uaa_mt_hw
+   parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+      shared: true
+   type: org.cloudfoundry.managed-service
+
+#  - name: mt-hw-app-saas-registry
+#    parameters:
+#       path: ./mt_config/config.json
+#       service-plan: application
+#       service: saas-registry
+#       shared: true
+#    type: org.cloudfoundry.managed-service

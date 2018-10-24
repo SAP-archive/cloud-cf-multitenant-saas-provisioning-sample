@@ -17,7 +17,7 @@ Through this sample application you will understand:
 
 ## Download and Installation
 
-To install the app, you must clone the code from this [Github](//TODO) repository and deploy the application on your SAP Cloud Platform subaccount, running on the Cloud Foundry environment.
+To install the app, you must clone the code from this [Github](//TODO) repository and deploy the application on your SAP Cloud Platform sub-account, running on the Cloud Foundry environment.
 
 For complete setup instructions, see the [Download and Installation](./Download_and_Installation_Instructions.md) instructions.
 
@@ -25,12 +25,10 @@ For complete setup instructions, see the [Download and Installation](./Download_
 There are no known issues to this sample application. If you encounter any issues, please reach out to us through the details highlighted in the How to obtain support section
 
 ## How to obtain support
-The intended purpose of this application is to illustrate the multitenancy capability of SAP Cloud Platform running on Cloud Foundry environment; Thus it is provided "as-is" with no official lines of support.
+The intended purpose of this application is to illustrate the multitenancy capability of SAP Cloud Platform running on Cloud Foundry environment.
 
-However, If you run into any problems with the installation or would like more information please drop us an e-mail:
-* Ramachandran, Mahipal - mahipal.ramachandran01@sap.com
-* R, Hariprasauth  - hariprasauth.r@sap.com
-* TDS, Sandeep - sandeep.tds@sap.com
+In case of an issue please create an issue on Github.
+Please follow the steps mentioned [here](https://help.github.com/articles/creating-an-issue/) to create an Issue.
 
 ## License
 

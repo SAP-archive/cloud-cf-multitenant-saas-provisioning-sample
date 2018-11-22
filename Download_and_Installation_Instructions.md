@@ -165,7 +165,7 @@ In this section, we'll cover the steps that you need to do so that your applicat
     ```
 
 ## 6. Subscribe To The Application
-In this section we will cover the steps that a consumer must perform to subscribe to the application. A consumer may subscribe to the application either through SAP Cloud Platform Cockpit or Rest API.
+In this section we will cover the steps that a consumer must perform to subscribe to the application.
 
 ### 6.1. Subscription Through SAP Cloud Platform Cockpit
 
@@ -191,7 +191,7 @@ In this section we will cover the steps that a consumer must perform to subscrib
 
 7. As a last step you need to create a route for your consumer. Please follow the steps highlighted in the [6.3 section of this documentation](#63-creating-a-route-manually).
 
-### 6.3. Creating a Route Manually
+### 6.2. Creating a Route Manually
 For the current SaaS application, when you hit the URL you will not be able to access and see a page as shown in the image.
 
 ![Step Image](Readme_resources/images/image_6-3_App_Not_Found.png)

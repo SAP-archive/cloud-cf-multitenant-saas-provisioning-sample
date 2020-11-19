@@ -9,8 +9,7 @@ SPDX-License-Identifier: Apache-2.0
 
 ## Warning
 
-This code sample is deprecated in favor of a CAP based example.  
-See [cloud-cap-multitenancy](https://github.com/SAP-samples/cloud-cap-multitenancy)
+This code sample is deprecated in favor of a CAP based example. See [cloud-cap-multitenancy](https://github.com/SAP-samples/cloud-cap-multitenancy).
 
 ## Description
 
@@ -44,9 +43,7 @@ Please follow the steps mentioned [here](https://help.github.com/articles/creati
 
 ## License
 
-Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved.
-
-This file is licensed under the SAP Sample Code License, except as noted otherwise in the [LICENSE file](./LICENSES/Apache-2.0.txt)
+Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved. This file is licensed under the Apache Software License, version 2.0, except as noted otherwise in the [LICENSE file](./LICENSES/Apache-2.0.txt)
 
 # Build Command:
 ```

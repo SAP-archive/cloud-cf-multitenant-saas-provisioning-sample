@@ -32,6 +32,26 @@ To install the app, you must clone the code from this [Github](https://github.co
 
 For complete setup instructions, see the [Download and Installation](./Download_and_Installation_Instructions.md) instructions.
 
+### Build Command:
+```
+mkdir -p mta_archives ; mbt build -p=cf -t=mta_archives --mtar=mthello.mtar
+```
+
+### Deploy Command:
+```
+cf deploy mta_archives/mthello.mtar -f
+```
+
+### Subsequent Build+Deploy Commands:
+```
+mbt build -p=cf -t=mta_archives --mtar=mthello.mtar ; cf deploy mta_archives/mthello.mtar -f
+```
+
+### Undeploy Command:
+```
+cf undeploy multitenant_helloworld_node -f --delete-services
+```
+
 ## Known Issues
 There are no known issues to this sample application. If you encounter any issues, please reach out to us through the details highlighted in the How to obtain support section
 
@@ -43,24 +63,5 @@ Please follow the steps mentioned [here](https://help.github.com/articles/creati
 
 ## License
 
-Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved. This file is licensed under the Apache Software License, version 2.0, except as noted otherwise in the [LICENSE file](./LICENSES/Apache-2.0.txt)
+Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0, except as noted otherwise in the [LICENSE file](./LICENSES/Apache-2.0.txt)
 
-# Build Command:
-```
-mkdir -p mta_archives ; mbt build -p=cf -t=mta_archives --mtar=mthello.mtar
-```
-
-# Deploy Command:
-```
-cf deploy mta_archives/mthello.mtar -f
-```
-
-# Subsequent Build+Deploy Commands:
-```
-mbt build -p=cf -t=mta_archives --mtar=mthello.mtar ; cf deploy mta_archives/mthello.mtar -f
-```
-
-# Undeploy Command:
-```
-cf undeploy multitenant_helloworld_node -f --delete-services
-```

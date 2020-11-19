@@ -7,6 +7,11 @@ SPDX-License-Identifier: Apache-2.0
 
 # Using SaaS Provisioning Service to develop a SaaS Multitenant Application on SAP Cloud Platform in the Cloud Foundry Environment
 
+## Warning
+
+This code sample is deprecated in favor of a CAP based example.  
+See [cloud-cap-multitenancy](https://github.com/SAP-samples/cloud-cap-multitenancy)
+
 ## Description
 
 This repository contains a sample reference application that explains the steps involved in using SaaS Provisioning service to develop and deploy a SaaS (software-as-a-service) multitenant business application on SAP Cloud Platform, Cloud Foundry environment.

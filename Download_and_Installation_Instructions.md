@@ -194,6 +194,10 @@ In this section we will cover the steps that a consumer must perform to subscrib
 ### 6.2. Creating a Route Manually
 For the current SaaS application, when you hit the URL you will not be able to access and see a page as shown in the image.
 
+```
+cf map-route mt-hw-ar-app cfapps.<landscape>.hana.ondemand.com --hostname xxxmtxsmsb0-mt-hw-ar-app
+```
+
 ![Step Image](Readme_resources/images/image_6-3_App_Not_Found.png)
 
 To create a route for the consumer please follow the steps mentioned in this section.

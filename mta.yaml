@@ -10,12 +10,14 @@ modules:
    parameters:
       disk-quota: 256M
       memory: 256M
+      host: ${org}-mt-hw-node-app
    provides:
      - name: dest_mt_hw_approuter_app
        properties:
          node_app_url: '${default-url}'
    requires:
     - name: uaa_mt_hw
+    - name: reg_mt_hw
    properties:
       SAP_JWT_TRUST_ACL:
        - clientid: "*"
@@ -27,6 +29,12 @@ modules:
    parameters:
       disk-quota: 256M
       memory: 256M
+      host: ${org}-mt-hw-ar-app
+   provides:
+    - name: Router_api
+      properties:
+         url: ${default-url}
+         application: ${app-name}
    requires:
       - name: uaa_mt_hw
       - name: dest_mt_hw_approuter_app
@@ -36,22 +44,52 @@ modules:
           url: '~{node_app_url}'
           forwardAuthToken: true
    properties:
-      TENANT_HOST_PATTERN: "^(.*)-mt-hw-ar-app.cfapps.eu10.hana.ondemand.com"
+      TENANT_HOST_PATTERN: "^(.*)-mt-hw-ar-app.cfapps."
 
 
 resources:
  - name: uaa_mt_hw
+   type: org.cloudfoundry.managed-service
+   requires:
+    - name: Router_api
+   properties:
+      XSAPPNAME: ${xsuaa-app}
    parameters:
-      path: ./xs-security.json
+      #path: ./xs-security.json
       service-plan: application
       service: xsuaa
       shared: true
-   type: org.cloudfoundry.managed-service
+      xsuaa-app: ${space}-~{Router_api/application}
+      config:
+         xsappname: ${xsuaa-app}
+         ### tenant-mode
+         tenant-mode: shared
+         description: Security profile of called application
+         scopes:
+          - name: "$XSAPPNAME.Callback"
+            description: With this scope set, the callbacks for tenant onboarding, offboarding and getDependencies can be called.
+            grant-as-authority-to-apps: 
+             - "$XSAPPNAME(application,sap-provisioning,tenant-onboarding)"
+         oauth2-configuration:
+            redirect-uris: 
+             - "http*://*.cfapps.<landscape>.hana.ondemand.com/**"
 
-#  - name: mt-hw-app-saas-registry
-#    parameters:
-#       path: ./mt_config/config.json
-#       service-plan: application
-#       service: saas-registry
-#       shared: true
-#    type: org.cloudfoundry.managed-service
+ - name: reg_mt_hw
+   type: org.cloudfoundry.managed-service
+   requires:
+    - name: uaa_mt_hw
+   parameters:
+      service: saas-registry
+      service-plan: application
+      config:
+         xsappname: ~{uaa_mt_hw/XSAPPNAME}
+         appName: multitenant_helloworld_node
+         displayName: Hello World
+         description: 'A sample hello world app to explain the concepts of Multitenancy'
+         category: 'Provider ZZZ'
+         appUrls:
+            onSubscription: https://${org}-mt-hw-node-app.cfapps.<landscape>.hana.ondemand.com/callback/v1.0/tenants/{tenantId}
+            onSubscriptionAsync: false
+            onUnSubscriptionAsync: false
+            # callbackTimeoutMillis: 1200000
+               

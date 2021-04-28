@@ -23,12 +23,14 @@ Through this sample application you will understand:
 
 * [Cloud Foundry Command Line Interface (CF CLI) tools](https://github.com/cloudfoundry/cli)
 * [A subaccount on SAP Cloud Platform running on the Cloud Foundry environment](https://account.hana.ondemand.com)
-* [Access to SAP Web IDE Full stack version](https://help.sap.com/viewer/product/SAP_Web_IDE/CF/en-US?task=discover_task).
+* [Access to SAP Web IDE Full stack version](https://help.sap.com/viewer/product/SAP_Web_IDE/CF/en-US?task=discover_task). -or- Business Application Studio
 * [Developing a Multi Target Application (MTAR) on SAP Cloud Platform Cloud Foundry](https://help.sap.com/viewer/825270ffffe74d9f988a0f0066ad59f0/CF/en-US/a71bf8281254489ea8be6e323199b304.html)
 
 ## Download and Installation
 
 To install the app, you must clone the code from this [Github](https://github.com/SAP-samples/cloud-cf-multitenant-saas-provisioning-sample) repository and deploy the application on your SAP Cloud Platform sub-account, running on the Cloud Foundry environment.
+
+__Mandatory:__  Please replace all occurances of __&lt;landscape&gt;__ with the four character code (ex: eu10) that represents the landscape that you will be deploying into.
 
 For complete setup instructions, see the [Download and Installation](./Download_and_Installation_Instructions.md) instructions.
 

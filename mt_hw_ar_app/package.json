@@ -1,12 +1,10 @@
 {
     "name": "mt_hw_ar_app",
     "dependencies": {
-        "@sap/approuter": "3.0.1"
+        "@sap/xsenv": "^3",
+        "@sap/approuter": "^8"
     },
     "scripts": {
         "start": "node node_modules/@sap/approuter/approuter.js"
-    },
-    "engines": {
-        "node": "6"
     }
 }

@@ -28,7 +28,7 @@ router.get('/', function(req, res, next) {
  */
 router.put('/callback/v1.0/tenants/*', function (req, res) {
   var consumerSubdomain = req.body.subscribedSubdomain;
-  var tenantAppURL = "https:\/\/" + consumerSubdomain + "-mt-hw-ar-app." + "cfapps.eu10.hana.ondemand.com";
+  var tenantAppURL = "https:\/\/" + consumerSubdomain + "-mt-hw-ar-app." + "cfapps.<landscape>.hana.ondemand.com";
   res.status(200).send(tenantAppURL);
 });
 
